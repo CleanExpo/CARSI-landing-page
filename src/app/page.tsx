@@ -1,6 +1,9 @@
-import { CourseCard } from '@/components/CourseCard'
 import { Hero } from '@/components/Hero'
-import { coursePageSchema } from '@/lib/schema'
+import { Features } from '@/components/Features'
+import { Statistics } from '@/components/Statistics'
+import { CourseCarousel } from '@/components/CourseCarousel'
+import { FAQ } from '@/components/FAQ'
+import { coursePageSchema, faqSchema, breadcrumbSchema } from '@/lib/schema'
 import type { Course } from '@/types'
 
 const courses: Course[] = [
@@ -170,24 +173,88 @@ const courses: Course[] = [
 export default function Home() {
   return (
     <main className="min-h-screen">
+      {/* Multiple Schema.org structured data for maximum SEO */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(coursePageSchema(courses)) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
 
       <Hero />
+      <Features />
+      <Statistics />
+      <CourseCarousel courses={courses} />
+      <FAQ />
 
-      <section className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          Our Training Courses
-        </h2>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {courses.map((course) => (
-            <CourseCard key={course.id} course={course} />
-          ))}
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-br from-blue-900 to-blue-700">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Ready to Start Your Restoration Career?
+          </h2>
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            Join thousands of certified restoration professionals. Start your training today.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="bg-yellow-400 text-blue-900 px-10 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition-all transform hover:scale-105 shadow-xl">
+              Enroll Now →
+            </button>
+            <button className="border-2 border-white text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-900 transition-all transform hover:scale-105">
+              Contact Us
+            </button>
+          </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="text-xl font-bold mb-4">CARSI Training</h3>
+              <p className="text-gray-400">
+                Professional restoration certification and training courses.
+              </p>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li><a href="#" className="hover:text-white transition-colors">All Courses</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Free Courses</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Certifications</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold mb-4">Support</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li><a href="#" className="hover:text-white transition-colors">FAQ</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold mb-4">Contact</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li>Email: info@carsi-training.com</li>
+                <li>Phone: +1-XXX-XXX-XXXX</li>
+                <li>Support: 24/7 Available</li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; {new Date().getFullYear()} CARSI Training. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
     </main>
   )
 }
