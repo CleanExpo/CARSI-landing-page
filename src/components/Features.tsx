@@ -1,24 +1,26 @@
+import Image from 'next/image'
+
 export function Features() {
   const features = [
     {
       title: 'Industry-Recognized Certifications',
       description: 'IICRC, RIA, and industry-standard certifications recognized across North America',
-      icon: '🎓',
+      iconPath: '/icons/iicrc-training.png',
     },
     {
       title: 'Online & Self-Paced',
       description: 'Learn on your schedule with 24/7 access from any device, anywhere',
-      icon: '💻',
+      iconPath: '/icons/online-self-paced.png',
     },
     {
       title: 'Expert Instructors',
       description: 'Learn from seasoned restoration professionals with decades of field experience',
-      icon: '👨‍🏫',
+      iconPath: '/icons/expert-instructions.png',
     },
     {
       title: 'Comprehensive Training',
       description: 'From water damage to mould remediation - complete certification programs',
-      icon: '📚',
+      iconPath: '/icons/comprehensive-training.png',
     },
   ]
 
@@ -38,10 +40,17 @@ export function Features() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="text-center p-6 rounded-xl hover:shadow-xl transition-shadow duration-300 bg-gray-50"
+              className="text-center p-6 rounded-xl hover:shadow-xl transition-all duration-300 bg-gray-50 hover:bg-white group"
             >
-              <div className="text-5xl mb-4">{feature.icon}</div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">
+              <div className="relative w-20 h-20 mx-auto mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                <Image
+                  src={feature.iconPath}
+                  alt={feature.title}
+                  fill
+                  className="object-contain drop-shadow-lg"
+                />
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-charcoal group-hover:text-carsi-blue transition-colors">
                 {feature.title}
               </h3>
               <p className="text-gray-600">{feature.description}</p>
