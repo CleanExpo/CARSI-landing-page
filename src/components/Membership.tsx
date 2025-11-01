@@ -36,48 +36,36 @@ export function Membership() {
 
   const membershipTiers = [
     {
-      name: 'Individual',
-      price: '$299',
+      name: 'Foundation',
+      price: '$275',
       period: '/year',
-      description: 'Perfect for independent contractors and technicians',
+      description: 'Essential membership for restoration professionals',
       features: [
-        'All course discounts',
-        'Digital certificate',
-        'Email support',
+        'Member discounts on courses',
+        'Digital member certificate',
+        'Access to member resources',
+        'Industry updates & newsletters',
         'Member directory listing',
-        'Monthly webinars',
+        'Email support',
       ],
       highlighted: false,
     },
     {
-      name: 'Professional',
-      price: '$599',
+      name: 'Growth',
+      price: '$770',
       period: '/year',
-      description: 'Ideal for growing restoration businesses',
+      description: 'Advanced membership for growing businesses',
       features: [
-        'Everything in Individual',
-        'Up to 5 team members',
-        'Priority support',
-        'Advanced training materials',
-        'Quarterly workshops',
-        'Marketing resources',
+        'Everything in Foundation',
+        'Priority course enrollment',
+        'Enhanced member discounts',
+        'Exclusive webinars & workshops',
+        'Technical support hotline',
+        'Marketing & business resources',
+        'Networking opportunities',
+        'CEU credits included',
       ],
       highlighted: true,
-    },
-    {
-      name: 'Enterprise',
-      price: 'Custom',
-      period: '',
-      description: 'For large organizations with multiple locations',
-      features: [
-        'Everything in Professional',
-        'Unlimited team members',
-        'Dedicated account manager',
-        'Custom training programs',
-        'On-site training options',
-        'White-label materials',
-      ],
-      highlighted: false,
     },
   ]
 
@@ -124,7 +112,7 @@ export function Membership() {
         {/* Membership Tiers */}
         <div className="mb-12">
           <h3 className="text-3xl font-bold text-center mb-8 text-charcoal">Choose Your Membership</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {membershipTiers.map((tier, index) => (
               <div
                 key={index}
