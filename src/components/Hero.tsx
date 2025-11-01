@@ -3,8 +3,23 @@ import Image from 'next/image'
 export function Hero() {
   return (
     <section className="relative bg-gradient-to-br from-carsi-blue-dark via-carsi-blue to-carsi-blue-light text-white py-24 md:py-40 overflow-hidden">
+      {/* Background Banner Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/banner-background.png"
+          alt="CARSI Training Background"
+          fill
+          className="object-cover opacity-30"
+          priority
+          quality={90}
+        />
+      </div>
+
+      {/* Gradient Overlay for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-br from-carsi-blue-dark/80 via-carsi-blue/70 to-carsi-blue-light/80 z-0"></div>
+
       {/* Animated background pattern */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-5 z-0">
         <div className="absolute inset-0" style={{
           backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
           backgroundSize: '40px 40px'
@@ -12,8 +27,8 @@ export function Hero() {
       </div>
 
       {/* Decorative 3D elements inspired by logo */}
-      <div className="absolute top-20 left-10 w-32 h-32 bg-carsi-orange/20 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-20 right-10 w-40 h-40 bg-white/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      <div className="absolute top-20 left-10 w-32 h-32 bg-carsi-orange/20 rounded-full blur-3xl animate-pulse z-0"></div>
+      <div className="absolute bottom-20 right-10 w-40 h-40 bg-white/10 rounded-full blur-3xl animate-pulse delay-1000 z-0"></div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
