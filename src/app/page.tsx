@@ -3,6 +3,7 @@ import { Hero } from '@/components/Hero'
 import { Features } from '@/components/Features'
 import { Statistics } from '@/components/Statistics'
 import { CourseCarousel } from '@/components/CourseCarousel'
+import { Membership } from '@/components/Membership'
 import { FAQ } from '@/components/FAQ'
 import { coursePageSchema, faqSchema, breadcrumbSchema } from '@/lib/schema'
 import type { Course } from '@/types'
@@ -194,6 +195,7 @@ export default function Home() {
       <Features />
       <Statistics />
       <CourseCarousel courses={courses} />
+      <Membership />
       <FAQ />
 
       {/* CTA Section */}
